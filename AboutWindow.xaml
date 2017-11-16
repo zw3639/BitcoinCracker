@@ -1,0 +1,19 @@
+﻿<Window x:Class="Cracker.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cracker"
+        xmlns:props="clr-namespace:Cracker.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static props:Resources.About}" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded">
+    <Grid>
+        <Grid Height="150">
+            <Image Source="xiaonh.ico" Width="64" Height="64" VerticalAlignment="Top" />
+            <Label Name="lbName" Margin="0,70,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" />
+            <TextBlock Margin="0,100,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Hyperlink Name="hlCompany" Click="hlCompany_Click" />
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Window>

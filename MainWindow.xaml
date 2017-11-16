@@ -1,0 +1,50 @@
+﻿<Window x:Class="Cracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cracker"
+        xmlns:props="clr-namespace:Cracker.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static props:Resources.Title}" Height="500" Width="800" Icon="xiaonh.ico" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" Closing="Window_Closing" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="{x:Static props:Resources.UpdateAddress}" Foreground="Blue" Name="miAddress" Visibility="Collapsed" Click="miAddress_Click" />
+            <MenuItem Header="{x:Static props:Resources.UpdateSoftware}" Foreground="Blue" Name="miSoftware" Visibility="Collapsed" Click="miSoftware_Click" />
+            <MenuItem Header="{x:Static props:Resources.Help}" Name="miHelp" Click="miHelp_Click" />
+            <MenuItem Header="{x:Static props:Resources.About}" Name="miAbout" Click="miAbout_Click" />
+        </Menu>
+        <WebBrowser Grid.Row="1" Source="http://www.xiaonh.com/bitcoincracker/ad.html" />
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Margin="10">
+                <local:RowContainer Title="{x:Static props:Resources.DestinationAddress}">
+                    <TextBlock Name="tbAddress" />
+                </local:RowContainer>
+                <local:RowContainer Title="{x:Static props:Resources.ThreadCount}">
+                    <ComboBox Name="cbThreadCount"/>
+                </local:RowContainer>
+                <local:RowContainer Title="{x:Static props:Resources.CrackSpeed}">
+                    <TextBlock Name="tbSpeed" Text="--" />
+                </local:RowContainer>
+                <local:RowContainer Title="{x:Static props:Resources.CrackProbabilityPerDay}">
+                    <TextBlock Name="tbProbability" Text="--" />
+                </local:RowContainer>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="btnStart" Content="{x:Static props:Resources.StartCrack}" Width="103" Height="30" HorizontalAlignment="Left" Click="btnStart_Click"/>
+                    <Button Name="btnStop" Content="{x:Static props:Resources.StopCrack}" IsEnabled="False" Margin="40,0,0,0" Width="103" Height="30" HorizontalAlignment="Left" Click="btnStop_Click" />
+                </StackPanel>
+            </StackPanel>
+            <TextBox Grid.Row="1" Name="tbOutput" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+        </Grid>
+    </Grid>
+</Window>
